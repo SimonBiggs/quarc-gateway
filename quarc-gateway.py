@@ -115,7 +115,7 @@ def main():
     webbrowser.open("https://{}:7575".format(ip))
 
     Quarc.launch_instance(
-        password='', token='', port=7575,
+        password=password, token='', port=7575,
         ip=ip, port_retries=0,
         allow_origin='https://quarc.services',
         allow_headers='X-XSRFToken,Content-Type',
