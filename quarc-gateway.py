@@ -112,18 +112,16 @@ def main():
 
     certificate, key = create_certificate(ip)
 
-    # webbrowser.open("https://{}:7575".format(ip))
+    webbrowser.open("https://{}:7575".format(ip))
 
     Quarc.launch_instance(
         password='', token='', port=7575,
         ip=ip, port_retries=0,
-        allow_origin='https://scriptedforms.firebaseapp.com',
+        allow_origin='https://quarc.services',
         allow_headers='X-XSRFToken,Content-Type',
         allow_methods="DELETE",
         certfile=certificate, 
         keyfile=key)
-
-
 
 
 if __name__ == "__main__":
