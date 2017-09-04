@@ -18,6 +18,7 @@ import zipfile
 import socket
 import os
 import webbrowser
+import random
 
 from getpass import getpass
 
@@ -79,7 +80,7 @@ def create_certificate(ip):
         cert.get_subject().O = "Quarc"
         cert.get_subject().OU = "Quarc"
         cert.get_subject().CN = ip
-        cert.set_serial_number(1000)
+        cert.set_serial_number(random.randrange(1000,10000000))
         cert.gmtime_adj_notBefore(0)
         cert.gmtime_adj_notAfter(10*365*24*60*60)
         cert.set_issuer(cert.get_subject())
@@ -115,7 +116,7 @@ def main():
 
     Quarc.launch_instance(
         password='', token='', port=7575,
-        ip='localhost', port_retries=0,
+        ip=ip, port_retries=0,
         allow_origin='https://scriptedforms.firebaseapp.com',
         allow_headers='X-XSRFToken,Content-Type',
         allow_methods="DELETE",
